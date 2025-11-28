@@ -1,0 +1,55 @@
+# CJ Sports Website - Git Ignore File
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+
+# Image Backups (keep originals in a separate folder)
+*-backup.*
+*-old.*
+
+# Node Modules (if you add build tools later)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build/Distribution Folders (if added later)
+dist/
+build/
+
+# Environment Files (if you add backend later)
+.env
+.env.local
+.env.production
+
+# Cache Folders
+.cache/
+.sass-cache/
+
+# Optional: Large source files you don't want in repo
+# images/raw/
+# videos/
+
+# Keep directory structure but ignore everything in them
+# images/*
+# !images/README.md
