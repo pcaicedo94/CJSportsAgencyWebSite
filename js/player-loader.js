@@ -38,10 +38,15 @@ function populatePlayerHeader(player) {
         avatarImg.alt = player.name;
     }
     
-    // Update player number
+    // Update player number (hide for boxers)
     const playerNumber = document.querySelector('.player-number-large');
     if (playerNumber) {
-        playerNumber.textContent = player.number;
+        if (player.sport === 'boxing') {
+            playerNumber.style.display = 'none';
+        } else {
+            playerNumber.textContent = player.number;
+            playerNumber.style.display = 'block';
+        }
     }
     
     // Update player name
@@ -56,17 +61,84 @@ function populatePlayerHeader(player) {
         playerPosition.textContent = player.position;
     }
     
-    // Update basic info
-    const infoValues = document.querySelectorAll('.info-value');
-    if (infoValues.length >= 4) {
-        infoValues[0].textContent = player.age;
-        infoValues[1].textContent = player.height;
-        infoValues[2].textContent = player.nationality;
-        infoValues[3].textContent = player.foot;
+    // Update basic info dynamically based on sport
+    const basicInfoContainer = document.querySelector('.player-basic-info');
+    if (basicInfoContainer) {
+        basicInfoContainer.innerHTML = generateBasicInfo(player);
     }
     
     // Update page title
     document.title = `${player.name} | CJ Sports Agency`;
+}
+
+function generateBasicInfo(player) {
+    let html = '';
+    
+    // Common fields for all sports
+    html += `
+        <div class="info-item">
+            <span class="info-label">Age</span>
+            <span class="info-value">${player.age}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Height</span>
+            <span class="info-value">${player.height}</span>
+        </div>
+    `;
+    
+    // Sport-specific fields
+    if (player.sport === 'football') {
+        html += `
+            <div class="info-item">
+                <span class="info-label">Nationality</span>
+                <span class="info-value">${player.nationality}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Foot</span>
+                <span class="info-value">${player.foot}</span>
+            </div>
+        `;
+    } else if (player.sport === 'basketball') {
+        html += `
+            <div class="info-item">
+                <span class="info-label">Wingspan</span>
+                <span class="info-value">${player.wingspan || 'N/A'}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Nationality</span>
+                <span class="info-value">${player.nationality}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Hand</span>
+                <span class="info-value">${player.hand}</span>
+            </div>
+        `;
+    } else if (player.sport === 'boxing') {
+        html += `
+            <div class="info-item">
+                <span class="info-label">Weight Class</span>
+                <span class="info-value">${player.weightClass || player.position}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Reach</span>
+                <span class="info-value">${player.reach || 'N/A'}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Nationality</span>
+                <span class="info-value">${player.nationality}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Hand</span>
+                <span class="info-value">${player.hand}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Stance</span>
+                <span class="info-value">${player.stance || 'Orthodox'}</span>
+            </div>
+        `;
+    }
+    
+    return html;
 }
 
 function populateVideoHighlights(player) {

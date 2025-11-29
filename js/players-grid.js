@@ -65,10 +65,15 @@ function createPlayerCard(id, player) {
     card.className = 'player-card';
     card.setAttribute('data-player', id);
     
+    // Only show number for sports that use it (not boxing)
+    const numberHtml = player.number && player.sport !== 'boxing' 
+        ? `<div class="player-number">${player.number}</div>` 
+        : '';
+    
     card.innerHTML = `
         <div class="card-glow"></div>
         <div class="card-content">
-            <div class="player-number">${player.number}</div>
+            ${numberHtml}
             <div class="player-image">
                 <div class="player-avatar">
                     <img src="${player.image}" alt="${player.name}">
