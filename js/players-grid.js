@@ -1,6 +1,6 @@
 // ===================================
 // PLAYERS GRID GENERATOR
-// Dynamically generates player cards
+// Dynamically generates player cards by sport
 // ===================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -8,17 +8,55 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!playersGrid) return;
     
-    // Get all players data
-    const players = getAllPlayers();
-    
     // Clear existing content
     playersGrid.innerHTML = '';
     
-    // Generate cards for each player
-    Object.keys(players).forEach(id => {
-        const player = players[id];
-        const card = createPlayerCard(id, player);
-        playersGrid.appendChild(card);
+    // Get all sports
+    const sports = getAllSports();
+    const sportLabels = {
+        'football': 'FOOTBALL',
+        'basketball': 'BASKETBALL',
+        'boxing': 'BOXING'
+    };
+    
+    const sportIcons = {
+        'football': 'fa-futbol',
+        'basketball': 'fa-basketball-ball',
+        'boxing': 'fa-hand-fist'
+    };
+    
+    // Create section for each sport
+    sports.forEach(sport => {
+        // Create sport section
+        const section = document.createElement('div');
+        section.className = 'sport-section';
+        
+        // Create section header
+        const header = document.createElement('div');
+        header.className = 'sport-header';
+        header.innerHTML = `
+            <i class="fas ${sportIcons[sport] || 'fa-trophy'}"></i>
+            <h2>${sportLabels[sport] || sport.toUpperCase()}</h2>
+            <div class="header-line"></div>
+        `;
+        section.appendChild(header);
+        
+        // Create grid for this sport
+        const grid = document.createElement('div');
+        grid.className = 'players-grid-section';
+        
+        // Get players for this sport
+        const sportPlayers = getPlayersBySport(sport);
+        
+        // Generate cards for each player
+        Object.keys(sportPlayers).forEach(id => {
+            const player = sportPlayers[id];
+            const card = createPlayerCard(id, player);
+            grid.appendChild(card);
+        });
+        
+        section.appendChild(grid);
+        playersGrid.appendChild(section);
     });
 });
 

@@ -24,11 +24,69 @@
     padding: var(--spacing-xl) 0;
 }
 
-.players-grid {
+/* Sport Sections */
+.sport-section {
+    margin-bottom: 5rem;
+}
+
+.sport-section:last-child {
+    margin-bottom: 0;
+}
+
+.sport-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.sport-header i {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-cyan), var(--secondary-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px rgba(0, 217, 255, 0.5));
+}
+
+.sport-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-cyan);
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.header-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-cyan) 0%, transparent 100%);
+    position: relative;
+}
+
+.header-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: var(--primary-cyan);
+    box-shadow: 0 0 10px var(--primary-cyan);
+    transform: translateY(-50%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.players-grid-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
     gap: 2.5rem;
-    margin-top: var(--spacing-lg);
+    justify-content: center;
+}
+
+.players-grid {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Player Card */
@@ -39,6 +97,8 @@
     overflow: hidden;
     cursor: pointer;
     transition: var(--transition-medium);
+    width: 320px;
+    max-width: 100%;
 }
 
 .card-glow {
@@ -303,10 +363,32 @@
 }
 
 /* Responsive Design */
+@media (max-width: 968px) {
+    .sport-header h2 {
+        font-size: 2rem;
+    }
+    
+    .sport-header i {
+        font-size: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .players-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    .players-grid-section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
         gap: 2rem;
+    }
+    
+    .player-card {
+        width: 280px;
+    }
+    
+    .sport-header {
+        gap: 1rem;
+    }
+    
+    .sport-header h2 {
+        font-size: 1.75rem;
     }
 
     .player-number {
@@ -324,8 +406,25 @@
 }
 
 @media (max-width: 480px) {
-    .players-grid {
+    .players-grid-section {
         grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .player-card {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .sport-header {
+        flex-wrap: wrap;
+    }
+    
+    .header-line {
+        width: 100%;
+        order: 3;
+        margin-top: 1rem;
     }
 
     .page-header {
