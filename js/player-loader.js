@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Populate player header
     populatePlayerHeader(player);
     
+    // Populate video highlights
+    populateVideoHighlights(player);
+    
     // Populate metrics dashboard
     populateMetrics(player);
     
@@ -64,6 +67,14 @@ function populatePlayerHeader(player) {
     
     // Update page title
     document.title = `${player.name} | CJ Sports Agency`;
+}
+
+function populateVideoHighlights(player) {
+    // Update video iframe
+    const videoIframe = document.getElementById('playerVideo');
+    if (videoIframe && player.videoUrl) {
+        videoIframe.src = player.videoUrl;
+    }
 }
 
 function populateMetrics(player) {
