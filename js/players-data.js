@@ -15,7 +15,7 @@ const playersData = {
         nationality: "Colombia",
         foot: "Right",
         potential: 85,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        videoUrl: "../videos/juan.mp4",
         preview: "Advanced playmaker with exceptional vision and technical skills",
         metrics: {
             energy: 75,
@@ -47,7 +47,7 @@ const playersData = {
         nationality: "Spain",
         foot: "Right",
         potential: 92,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        videoUrl: "../videos/juan.mp4",
         preview: "The complete modern playmaker: high-precision under pressure, high-impact in recovery.",
         metrics: {
             energy: 95,
@@ -79,7 +79,7 @@ const playersData = {
         nationality: "Colombia",
         foot: "Right",
         potential: 88,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        videoUrl: "../videos/kennet.mp4",
         preview: "Clinical finisher with impressive pace and positioning",
         metrics: {
             energy: 82,
@@ -144,7 +144,7 @@ const playersData = {
         nationality: "Sweden",
         foot: "Right",
         potential: 87,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        videoUrl: "../videos/simonhedman.mp4",
         preview: "Commanding goalkeeper with exceptional reflexes",
         metrics: {
             energy: 65,
@@ -178,7 +178,7 @@ const playersData = {
         hand: "Right",
         stance: "Orthodox",
         potential: 89,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        videoUrl: "../videos/jomar.mp4",
         preview: "standard aggresive amateur style/highguard",
         metrics: {
             energy: 92,
