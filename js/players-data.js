@@ -112,7 +112,7 @@ const playersData = {
         nationality: "Colombia",
         hand: "Right",
         potential: 90,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        videoUrl: "../videos/felipe.mp4",
         preview: "Explosive guard with incredible ball-handling skills",
         metrics: {
             energy: 88,
@@ -169,7 +169,7 @@ const playersData = {
         name: "JOMAR POBLETE",
         sport: "boxing",
         position: "LIGHTWEIGHT",
-        weightClass: "147 lbs",
+        weightClass: "132 lbs",
         image: "../images/jomar.jpg",
         age: 17,
         height: "1.65m",
