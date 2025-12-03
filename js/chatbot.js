@@ -6,7 +6,7 @@
 class Chatbot {
     constructor(config = {}) {
         // Configuration
-        this.webhookUrl = config.webhookUrl || 'https://cjsports.app.n8n.cloud/webhook/athlete-interview';
+        this.webhookUrl = config.webhookUrl || 'https://cjsports.app.n8n.cloud/webhook-test/athlete-interview';
         this.botName = config.botName || 'CJ Assistant';
         this.botStatus = config.botStatus || 'AI Agent';
         
@@ -161,9 +161,9 @@ class Chatbot {
             // Hide typing indicator
             this.hideTyping();
             
-            // Add bot response
-            if (response && response.message) {
-                this.addMessage(response.message, 'bot');
+            // Add bot response - check for both 'output' and 'message' fields
+            if (response && (response.output || response.message)) {
+                this.addMessage(response.output || response.message, 'bot');
             } else {
                 this.addMessage('Thanks for your message! Our team will get back to you soon.', 'bot');
             }
@@ -184,19 +184,43 @@ class Chatbot {
             userAgent: navigator.userAgent
         };
         
-        const response = await fetch(this.webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload)
-        });
+        console.log('Sending to webhook:', this.webhookUrl);
+        console.log('Payload:', payload);
         
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        try {
+            const response = await fetch(this.webhookUrl, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload)
+            });
+            
+            console.log('Response status:', response.status);
+            console.log('Response headers:', response.headers);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            // Try to parse as JSON
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                const data = await response.json();
+                console.log('Response data:', data);
+                return data;
+            } else {
+                // If not JSON, try to get text
+                const text = await response.text();
+                console.log('Response text:', text);
+                // Return as object with output field
+                return { output: text };
+            }
+        } catch (error) {
+            console.error('Fetch error details:', error);
+            throw error;
         }
-        
-        return await response.json();
     }
     
     addMessage(text, sender) {
@@ -282,7 +306,7 @@ class Chatbot {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize with your n8n webhook URL
     window.chatbot = new Chatbot({
-        webhookUrl: 'https://your-n8n-instance.com/webhook/chat', // Replace with your n8n webhook URL
+        webhookUrl: 'https://cjsports.app.n8n.cloud/webhook-test/athlete-interview',
         botName: 'CJ Assistant',
         botStatus: 'AI Agent'
     });
