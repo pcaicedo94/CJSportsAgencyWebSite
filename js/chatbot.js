@@ -6,7 +6,7 @@
 class Chatbot {
     constructor(config = {}) {
         // Configuration
-        this.webhookUrl = config.webhookUrl || 'https://cjsports.app.n8n.cloud/webhook-test/athlete-interview';
+        this.webhookUrl = config.webhookUrl || 'https://cjsports.app.n8n.cloud/webhook/athlete-interview';
         this.botName = config.botName || 'CJ Assistant';
         this.botStatus = config.botStatus || 'AI Agent';
         
