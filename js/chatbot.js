@@ -306,7 +306,7 @@ class Chatbot {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize with your n8n webhook URL
     window.chatbot = new Chatbot({
-        webhookUrl: 'https://cjsports.app.n8n.cloud/webhook-test/athlete-interview',
+        webhookUrl: 'https://cjsports.app.n8n.cloud/webhook/athlete-interview',
         botName: 'CJ Assistant',
         botStatus: 'AI Agent'
     });
