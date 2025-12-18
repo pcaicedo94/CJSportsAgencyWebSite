@@ -47,7 +47,7 @@ const playersData = {
         nationality: "Spain",
         foot: "Right",
         potential: 92,
-        videoUrl: "https://www.youtube.com/watch?v=g85jFSVNmaY",
+        videoUrl: "https://www.youtube.com/embed/g85jFSVNmaY",
         preview: "The complete modern playmaker: high-precision under pressure, high-impact in recovery.",
         metrics: {
             energy: 95,
