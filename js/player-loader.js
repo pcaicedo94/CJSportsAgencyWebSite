@@ -162,12 +162,26 @@ function populateMetrics(player) {
         energyProgress.style.strokeDashoffset = offset;
     }
     
-    // Max speed
+    // Max speed (or punching speed for boxers)
     const speedValue = document.querySelector('.speedo-value');
     const speedProgress = document.querySelector('.speedo-progress');
     if (speedValue && speedProgress) {
-        speedValue.textContent = metrics.maxSpeed;
-        const speedPercent = (metrics.maxSpeed - 80) / 60; // Range 80-140 km/h
+        const speed = metrics.maxSpeed || metrics.maxPunchingSpeed;
+        const isBoxer = metrics.maxPunchingSpeed !== undefined;
+        
+        // Update label for boxers - select the title within the speedometer card
+        if (isBoxer) {
+            const speedTitle = document.querySelector('.speedometer').closest('.metric-card').querySelector('.metric-title');
+            if (speedTitle) {
+                speedTitle.textContent = 'MAX PUNCHING SPEED';
+            }
+        }
+        
+        speedValue.textContent = speed;
+        // Adjust range based on metric type
+        const minRange = isBoxer ? 30 : 15;
+        const maxRange = isBoxer ? 60 : 35;
+        const speedPercent = (speed - minRange) / (maxRange - minRange);
         const speedDasharray = 220;
         const speedOffset = speedDasharray - (speedPercent * speedDasharray);
         speedProgress.style.strokeDashoffset = Math.max(0, speedOffset);

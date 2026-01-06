@@ -19,7 +19,7 @@ const playersData = {
         preview: "Advanced playmaker with exceptional vision and technical skills",
         metrics: {
             energy: 75,
-            maxSpeed: 125,
+            maxSpeed: 30,
             status: 100,
             engineRate: [80, 60, 45, 30],
             powerRate: [80, 65, 90],
@@ -51,7 +51,7 @@ const playersData = {
         preview: "The complete modern playmaker: high-precision under pressure, high-impact in recovery.",
         metrics: {
             energy: 95,
-            maxSpeed: 115,
+            maxSpeed: 19,
             status: 100,
             engineRate: [80, 70, 65, 65],
             powerRate: [90, 75, 85],
@@ -83,7 +83,7 @@ const playersData = {
         preview: "Clinical finisher with impressive pace and positioning",
         metrics: {
             energy: 82,
-            maxSpeed: 132,
+            maxSpeed: 32,
             status: 95,
             engineRate: [85, 70, 55, 40],
             powerRate: [85, 70, 95],
@@ -116,7 +116,7 @@ const playersData = {
         preview: "Explosive guard with incredible ball-handling skills",
         metrics: {
             energy: 88,
-            maxSpeed: 135,
+            maxSpeed: 22,
             status: 98,
             engineRate: [90, 75, 60, 45],
             powerRate: [75, 85, 80],
@@ -148,7 +148,7 @@ const playersData = {
         preview: "Commanding goalkeeper with exceptional reflexes",
         metrics: {
             energy: 65,
-            maxSpeed: 95,
+            maxSpeed: 24,
             status: 100,
             engineRate: [70, 55, 45, 30],
             powerRate: [85, 80, 75],
@@ -182,7 +182,7 @@ const playersData = {
         preview: "standard aggresive amateur style/highguard",
         metrics: {
             energy: 92,
-            maxSpeed: 120,
+            maxPunchingSpeed: 45,
             status: 100,
             engineRate: [88, 72, 58, 42],
             powerRate: [82, 78, 88],
