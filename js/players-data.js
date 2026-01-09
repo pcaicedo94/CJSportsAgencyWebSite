@@ -45,7 +45,7 @@ const playersData = {
         image: "../images/mathiaz.png",
         age: 10,
         height: "1.40m",
-        nationality: "Spain",
+        nationality: "Spain/Colombia",
         foot: "Right",
         potential: 92,
         videoUrl: "https://www.youtube.com/embed/-bT88ghkyKs",
