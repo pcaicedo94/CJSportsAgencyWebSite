@@ -16,6 +16,7 @@ const playersData = {
         foot: "Right",
         potential: 85,
         videoUrl: "../videos/juan.mp4",
+        instagram: "https://www.instagram.com/juancaiced0",
         preview: "Advanced playmaker with exceptional vision and technical skills",
         metrics: {
             energy: 75,
@@ -43,11 +44,12 @@ const playersData = {
         position: "STRIKER - WINGER",
         image: "../images/mathiaz.png",
         age: 10,
-        height: "1.15m",
+        height: "1.40m",
         nationality: "Spain",
         foot: "Right",
         potential: 92,
         videoUrl: "https://www.youtube.com/embed/-bT88ghkyKs",
+        instagram: "https://www.instagram.com/_mathiaz10",
         preview: "The complete modern playmaker: high-precision under pressure, high-impact in recovery.",
         metrics: {
             energy: 95,
@@ -80,6 +82,7 @@ const playersData = {
         foot: "Right",
         potential: 88,
         videoUrl: "../videos/kennet.mp4",
+        instagram: "https://www.instagram.com/ketomas7",
         preview: "Clinical finisher with impressive pace and positioning",
         metrics: {
             energy: 82,
@@ -113,6 +116,7 @@ const playersData = {
         hand: "Right",
         potential: 90,
         videoUrl: "../videos/felipe.mp4",
+        instagram: "https://www.instagram.com/fille__17",
         preview: "Explosive guard with incredible ball-handling skills",
         metrics: {
             energy: 88,
@@ -145,6 +149,7 @@ const playersData = {
         foot: "Right",
         potential: 87,
         videoUrl: "../videos/simonhedman.mp4",
+        instagram: "https://www.instagram.com/simonhedman",
         preview: "Commanding goalkeeper with exceptional reflexes",
         metrics: {
             energy: 65,
@@ -179,6 +184,7 @@ const playersData = {
         stance: "Orthodox",
         potential: 89,
         videoUrl: "../videos/jomar.mp4",
+        instagram: "https://www.instagram.com/jomarpoblete",
         preview: "standard aggresive amateur style/highguard",
         metrics: {
             energy: 92,

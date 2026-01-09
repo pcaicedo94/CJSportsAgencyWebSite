@@ -98,6 +98,15 @@ function generateBasicInfo(player) {
                 <span class="info-value">${player.foot}</span>
             </div>
         `;
+        if (player.instagram) {
+            html += `
+                <div class="info-item">
+                    <a href="${player.instagram}" target="_blank" rel="noopener noreferrer" class="instagram-link" title="Follow on Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            `;
+        }
     } else if (player.sport === 'basketball') {
         html += `
             <div class="info-item">
@@ -113,6 +122,15 @@ function generateBasicInfo(player) {
                 <span class="info-value">${player.hand}</span>
             </div>
         `;
+        if (player.instagram) {
+            html += `
+                <div class="info-item">
+                    <a href="${player.instagram}" target="_blank" rel="noopener noreferrer" class="instagram-link" title="Follow on Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            `;
+        }
     } else if (player.sport === 'boxing') {
         html += `
             <div class="info-item">
@@ -136,6 +154,15 @@ function generateBasicInfo(player) {
                 <span class="info-value">${player.stance || 'Orthodox'}</span>
             </div>
         `;
+        if (player.instagram) {
+            html += `
+                <div class="info-item">
+                    <a href="${player.instagram}" target="_blank" rel="noopener noreferrer" class="instagram-link" title="Follow on Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            `;
+        }
     }
     
     return html;
